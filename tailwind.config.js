@@ -1,0 +1,35 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  theme: {
+    colors: {
+      'back_dim': '#293136',
+      'back0': '#333C43',
+      'back1': '#3A464C',
+      'back2': '#434F55',
+      'back3': '#4D5960',
+      'back4': '#555F66',
+      'back5': '#5D6B66',
+      'backred': '#5C3F4F',
+      'backvisual': '#59464C',
+      'backyellow': '#55544A',
+      'backgreen': '#48584E',
+      'backblue': '#3F5865',
+      'red': '#E67E80',
+      'orange': '#E69875',
+      'yellow': '#DBBC7F',
+      'green': '#A7C080',
+      'blue': '#7FBBB3',
+      'aqua': '#83C092',
+      'purple': '#D699B6',
+      'fg': '#D3C6AA',
+      'statusline1': '#A7C080',
+      'statusline2': '#D3C6AA',
+      'statusline3': '#E67E80',
+      'gray0': '#7a8478',
+      'gray1': '#859289',
+      'gray2': '#9DA9AO'
+    },
+  },
+  plugins: [],
+};
