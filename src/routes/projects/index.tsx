@@ -5,49 +5,44 @@ import path from "path";
 
 interface Projects {
   projects: {
-    name: string;
     content: string;
-  }[]
+  }[];
 }
 
-
-export const getMarkdowns = server$(async (): Promise<Projects> => {
-  const projectsDir = path.join(process.cwd(), 'public', 'projects');
+export const getMarkdowns = server$(async () => {
+  const projectsDir = path.join(process.cwd(), "public", "projects");
   const files = await fs.readdir(projectsDir);
 
-  const markdownFiles = files.filter(file => file.endsWith('.md'));
+  const markdownFiles = files.filter((file) => file.endsWith(".md"));
 
   const projects = await Promise.all(
     markdownFiles.map(async (file) => {
       const filePath = path.join(projectsDir, file);
-      const content = await fs.readFile(filePath, 'utf-8');
+      const content = await fs.readFile(filePath, "utf-8");
       return {
-        name: file.replace(".md", ""),
         content,
-      }
-    })
-  )
+      };
+    }),
+  );
 
-  console.log("loaded", projects)
+  console.log("loaded", projects);
 
   return {
-    projects
-  }
-})
+    projects: projects,
+  };
+});
 
 export default component$(() => {
-  const dataResource = (async () => {
-    return await getMarkdowns();
-  })
+  console.log(getMarkdowns().projects);
 
   //TODO: fix this issue, we must be able to receive the data from the server and render it on the client
 
-  console.log(dataResource.projects, 'projects')
-
   return (
-    <section class="bg-back3 w-[100vw] h-[100vh]">
+    <section class="h-[100vh] w-[100vw] bg-back3">
       <div class="projects-header py-4">
-        <h1 class="text-orange font-extrabold text-2xl text-center">Projects</h1>
+        <h1 class="text-center text-2xl font-extrabold text-orange">
+          Projects
+        </h1>
       </div>
       <div class="project-list">
         {/* { */}
@@ -59,5 +54,5 @@ export default component$(() => {
         {/* } */}
       </div>
     </section>
-  )
-})
+  );
+});
