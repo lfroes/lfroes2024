@@ -7,22 +7,26 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Agave Nerd Font';
-  src: url('/fonts/AgaveNerdFont-Regular.ttf') format('truetype');
+  font-family: "Agave Nerd Font";
+  src: url("/fonts/AgaveNerdFont-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'FiraCode Nerd Font';
-  src: url('/fonts/AgaveNerdFont-Bold.ttf') format('truetype');
+  font-family: "FiraCode Nerd Font";
+  src: url("/fonts/AgaveNerdFont-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-
 :root {
-  font-family: 'Agave Nerd Font', monospace;
+  font-family: "Agave Nerd Font", monospace;
+}
+
+/* Custom styles for MD files */
+.project-content h3 {
+  @apply text-2xl font-bold text-orange;
 }
