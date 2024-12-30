@@ -34,7 +34,7 @@ export const getMarkdowns = server$(async (): Promise<Projects> => {
     }),
   );
 
-  console.log("loaded", projects);
+  console.log(projects);
 
   return {
     projects: projects,
@@ -46,6 +46,7 @@ export default component$(() => {
     return await getMarkdowns();
   });
 
+  //TODO: Remove marked js and use a better markdown parser
   return (
     <section class="h-[100vh] w-[100vw] bg-back3">
       <div class="projects-header py-4">
@@ -59,12 +60,14 @@ export default component$(() => {
           onPending={() => <div>Loading...</div>}
           onRejected={(error) => <div>Error: {error.message}</div>}
           onResolved={(data) => {
-            console.log(data);
             return (
-              <div>
+              <div class="flex">
                 {data.projects.map((project, i: number) => {
                   return (
-                    <div class="project" key={i}>
+                    <div
+                      class="project border-2 border-back1 bg-back2 p-4"
+                      key={i}
+                    >
                       <div
                         class="project-content"
                         dangerouslySetInnerHTML={

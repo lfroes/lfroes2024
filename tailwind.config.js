@@ -20,6 +20,7 @@ export default {
       'yellow': '#DBBC7F',
       'green': '#A7C080',
       'blue': '#7FBBB3',
+      'white': '#FFF',
       'aqua': '#83C092',
       'purple': '#D699B6',
       'fg': '#D3C6AA',
